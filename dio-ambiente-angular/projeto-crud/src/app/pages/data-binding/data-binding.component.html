@@ -1,0 +1,54 @@
+<h1 class="text-center" [class.text-red]="textRed" [style.font-size]="fontSize">Data Binding</h1>
+<hr><br>
+<h2 class="text-center">Teste de Intepolation</h2>
+<h3 class="text-center">O nome é: {{ testeInterpolation }}</h3>
+<h3 class="text-center">{{ greetings() }}</h3>
+<hr><br>
+
+<h2 class="text-center">Teste de Property Binding</h2>
+<img [src]="imgSrc" [alt]="imgAlt" [style.width.px]="widthImg">
+<hr><br>
+
+<h2 class="text-center">Teste de Event Binding</h2>
+<h4 class="text-center">Resultado no console</h4>
+<button (click)="clicked('')">Click</button>
+<h4 class="text-center">{{ newText}}</h4>
+<input #input (keyup)="clicked(input.value)">
+{{ input.value}}
+<hr><br>
+
+<h2 class="text-center">Teste de Class Binding</h2>
+<button [attr.aria-label]="buttonText">{{ buttonText }}</button>
+<hr><br>
+
+<h2 class="text-center">Teste de Style Binding</h2>
+<button [attr.aria-label]="buttonText" [style.background-color]="bgColor">{{ buttonText }}</button>
+<hr><br>
+
+<h2 class="text-center">Teste de Two-Way Data Binding</h2>
+<input type="text" class="form-control" [(ngModel)]="textInput">
+<p class="text-center">Estou digitando: {{ textInput }}</p>
+<hr><br>
+
+<h2 class="text-center">Tranferindo dados entre Componentes @Input()</h2>
+<app-button [btnText]="'Enviar'" [btnType]="'btn-success'"></app-button><br>
+<app-button [btnText]="'Clique Aqui!'" [btnType]="'btn-default'"></app-button><br>
+<app-button [btnText]="'Salvar'" [btnType]="'btn-primary'"></app-button><br>
+<app-button [btnText]="'Remover'" [btnType]="'btn-danger'"></app-button><br>
+<hr><br>
+
+<h2 class="text-center">Tranferindo dados entre Componentes @Output()</h2>
+<app-button [btnText]="'Enviar'" [btnType]="'btn-success'" (clickChild)="clicouNoFilho($event)"></app-button><br>
+<hr><br>
+
+<h2 class="text-center">Testando o Angular Life-Cycle</h2>
+<app-life-cycle [number]="number" *ngIf="!destroy"></app-life-cycle>
+<app-button [btnText]="'Enviar'" [btnType]="'btn-success'" (click)="incrementa()"></app-button><br>
+<app-button [btnText]="'Destruir'" [btnType]="'btn-danger'" (click)="destroyComponente()"></app-button><br>
+
+
+
+
+
+
+

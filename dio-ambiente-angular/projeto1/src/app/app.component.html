@@ -1,0 +1,78 @@
+<h1 class="text-success text-center">Diretivas no angular</h1>
+
+<div 
+[ngStyle]="{color: count <= 3 ? 'red' : count <= 8 ? 'orange' : 'green'}"
+[ngClass]="{custom: count > 8}"
+>
+  <h2 class="text-center">Contador: {{ count }}</h2>
+</div>
+
+
+
+<!-- Diretivas Estruturais -->
+<h2 *ngIf="count > 5; else menor" class="text-center">O contador é maior do que 5</h2>
+<ng-template #menor>
+  <h2 class="text-center">Contador é menor do que 5</h2>
+</ng-template>
+
+
+<ul [ngSwitch]="count" class="list-group mx-auto col-3">
+  <li class="list-group-item" *ngSwitchCase="3">É igual a 3</li>
+  <li class="list-group-item" *ngSwitchCase="5">É igual a 5</li>
+  <li class="list-group-item" *ngSwitchCase="8">É igual a 8</li>
+  <li class="list-group-item" *ngSwitchCase="10">Chegou em 10</li>
+  <li class="list-group-item" *ngSwitchDefault>Nada a comentar</li>
+</ul>
+
+
+
+<h2 class="text-center">Usando diretiva ngFor</h2>
+<ul class="list-group mx-auto my-3 col-3">
+  <li class="list-group-item" *ngFor="let pessoa of pessoas">O nome é {{ pessoa.firstName }} e o sobrenome é {{ pessoa.lastName}} e a idade é {{ pessoa.age }}</li>
+</ul>
+
+<h2 class="text-center">Assim funciona o *ngFor por baixo dos panos</h2>
+<ul class="list-group mx-auto my-3 col-3">
+  <ng-template ngFor let-pessoa [ngForOf]="pessoas">
+    <li class="list-group-item">
+      O nome é {{ pessoa.firstName }} e o sobrenome é {{ pessoa.lastName}}
+    </li>
+  </ng-template>
+</ul>
+
+<!-- Usando serviços -->
+<h2 class="text-center">Usando o Serviço People</h2>
+<app-list-people></app-list-people> 
+
+<!-- Binding direcional da lógica para o template {{ valor }} ou [ propriedade ]-->
+<h3 class="text-center">Meu nome é: {{ nome }}</h3>
+
+<!-- Binding direcional do template para a lógica (evento)-->
+<div class="col-4 mx-auto my-3">
+  <button class="btn btn-success mx-auto col-4" (click)="clicou(nome)">Clique Aqui</button>
+</div>
+
+
+<!-- Biding bidirecional - two-way data-binding [(ngModel)] -->
+<div class="col-4 mx-auto my-3">
+  <input type="text" class="form-control" placeholder="Digite algo" [(ngModel)]="texto">
+  <h4>Saída: {{ texto }}</h4>
+</div>
+
+
+<!-- Chamando uma diretiva criada -->
+<h4 class="text-center" appMarcaTexto>Marca Texto: {{nome }}</h4>
+<h4 class="text-center" appMarcaTexto corDeFundo="blue" corDoTexto="white">Texto modificado....</h4>
+
+<div class="container my-5">
+  <div class="row d-flex align-items-center justify-content-center">
+    <h2 class="text-center">LISTAGEM DE PERSONAGENS RICK AND MORTY</h2>
+    <div class="col-12">
+      <app-list-api></app-list-api>
+    </div>
+  </div>
+</div>
+
+
+  
+

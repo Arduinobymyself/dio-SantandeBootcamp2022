@@ -1,0 +1,65 @@
+<h1 class="text-center">Testando Pipes</h1>
+<div class="form-group">
+    <label for="number">Numero:</label>
+    <input type="text" class="form-control" id="number" [(ngModel)]="number">
+    <br>
+    <button class="btn btn-success" (click)="mudaValor()">Numero Padrão</button>
+    <br><br>
+    <button class="btn btn-success" (click)="mudaTexto()">Texto Padrão</button>
+</div>
+<br>
+<div class="text-center">
+
+    <h3>Formatação de Números</h3>
+    <p>Sem formatação: {{ number | number}}</p>
+    <p>Com formatação: {{ number | number:'2.0-1' }}</p>
+    <p>Resultado em moeda: {{ number | currency:'BRL' }}</p>
+    <p>Resultado em porcentagem: {{ number | percent }}</p>
+    <hr><br>
+    
+    <h3>Formatação de Textos</h3>
+    <p>Sem formatação: {{ text }}</p>
+    <p>Formatação Título: {{ text | titlecase}}</p>
+    <p>Formatação Minúsculas: {{ text | lowercase}}</p>
+    <p>FormataçãoMaiúsculas: {{ text | uppercase}}</p>
+    <hr><br>
+
+    <h3>Formatação de Datas</h3>
+    <p>Sem formatção: {{ date }}</p>
+    <p>Data de hoje: {{ date | date}}</p>
+    <p>Data completa: {{ date | date:'long' }}</p>
+    <p>Data curta: {{ date | date:'short'}}</p>
+    <p>Hora curta: {{ date | date:'shortTime'}}</p>
+    <p>Meu padrão: {{ date | date:'dd/MM/yyyy':'ISO'}}</p>
+    <p>Pipe encadeado: {{ date | date:'full' | uppercase}}</p>
+    <hr><br>
+
+    <h3>Formatção JSON</h3>
+    <p>Este é um objeto Json: {{ pessoa | json}}</p>
+    <hr><br>
+
+    <h3>Formatação Slice</h3>
+    <p>Sem formatação: {{ pessoa.nome }}</p>
+    <p>Slice:3:6: {{ pessoa.nome | slice:3:6}}</p>
+    <hr><br>   
+</div>
+
+<div class="container">
+    <div class="col">
+    <div class="row-6">
+        <div class="form-group">
+            <label for="texto">Print Pipe Test:</label>
+            
+            <p><input type="text" name="texto" id="texto" #texto></p>
+            <button clas="btn btn-primary" (click)="add(texto.value)">Add</button>
+        </div>
+    </div>
+    <div class="row-6">
+        <h3>Lista Formatada</h3>
+        <p>Tamanho da lista {{ nomes.length }}</p>
+        <p>{{ nomes | printList }}</p>
+    </div>
+</div>
+</div>
+
+
