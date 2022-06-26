@@ -19,7 +19,7 @@ export class MarcaTextoDirective implements OnInit {
    private mudarFundo(cor: string = 'yellow'){
     this.elemento.nativeElement.style.backgroundColor = this.corDeFundo || cor;
     this.elemento.nativeElement.style.color = this.corDoTexto;
-    this.elemento.nativeElement.style.forntwheight = 'bold';
+    this.elemento.nativeElement.style.fontwheight = 'bold';
    }
 
 }
