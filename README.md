@@ -6,3 +6,4 @@
 - 06/06 - subindo os arquivos do desafio HTML / CSS - clone do instagram
 - 20/06 - subindo os arquivos do curso de Introdução ao Angular 8
 - 23/06 - subindo os arquivos do curso Explorando Diretivas com Angular
+- 04/06 - subindo os arquivos do projeto e-commerce bookstore em Angular
