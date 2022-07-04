@@ -15,6 +15,7 @@ export type apiResponse = {
 export class ListApiService {
   apiUrl: string = "https://rickandmortyapi.com/api/character";
   //apiUrl: string = "https://pokeapi.co/api/v2/pokemon/ditto"
+  //apiUrl: string = "https://pokeapi.glitch.me/v1/pokemon/"
 
   constructor(private httpClient: HttpClient) { 
 
